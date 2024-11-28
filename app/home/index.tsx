@@ -5,7 +5,6 @@ import { supabase } from "@/lib/supabaseClient";
 import ContentDisplay from "./displayContent";
 import { RealtimeChannel } from "@supabase/supabase-js";
 
-// Define Content interface for type safety
 interface Content {
   id: number;
   title: string;

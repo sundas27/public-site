@@ -3,12 +3,18 @@ import { supabase } from "@/lib/supabaseClient";
 import { ContentFetcher } from "./home";
 
 const fetchContent = async () => {
+  try {
   const { data, error } = await supabase.from("content").select("*").single();
   if (error) {
-    console.error("Error fetching content:", error);
-    return { content: null }; // Return empty content on error
+    console.log("Error fetching content:", error);
+    return { content: {} }; 
   }
   return { content: data };
+} catch(error) {
+  
+  console.log("Error fetching content:", error);
+  return { content: {} }
+}
 };
 
 // Server Component to fetch content
